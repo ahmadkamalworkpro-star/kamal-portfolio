@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad Kamal — Virtual Assistant | Branding & Automation Specialist</title>
+    <meta name="description" content="Ahmad Kamal is a multi-skilled Virtual Assistant, Branding Expert, and Digital Marketing Specialist. Expert in SEO, automation, design, and client growth strategies.">
+    <meta name="keywords" content="Ahmad Kamal, Virtual Assistant, Branding, SEO, Automation, Lead Generation, OSA, Marketing Specialist">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --blue: #007BFF;
+            --black: #0A0A0A;
+            --white: #FFFFFF;
+            --maroon: #800000;
+            --dark-bg: #0F0F0F;
+            --card-bg: #1A1A1A;
+        }
+
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 123, 255, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--blue), var(--maroon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--blue);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            transition: all 0.3s;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--black) 0%, #1a0a0a 50%, #0a0a1a 100%);
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--blue), var(--white), var(--maroon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        .typing-text {
+            font-size: 1.5rem;
+            color: var(--blue);
+            min-height: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .location {
+            font-size: 1.2rem;
+            color: var(--maroon);
+            margin-bottom: 2rem;
+            animation: fadeIn 2s ease;
+        }
+
+        .hero-quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            animation: fadeIn 2.5s ease;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-down::before {
+            content: '↓';
+            font-size: 2rem;
+            color: var(--blue);
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue), var(--maroon));
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        #about {
+            background: var(--dark-bg);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--blue), var(--maroon));
+            border-radius: 15px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 40px rgba(128, 0, 0, 0.5);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--blue), var(--maroon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ===== SKILLS SECTION ===== */
+        #skills {
+            background: var(--dark-bg);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--blue), var(--maroon));
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s ease;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+        }
+
+        .skill-item.animate .skill-progress {
+            width: var(--progress);
+        }
+
+        /* ===== PORTFOLIO SECTION ===== */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 1.5rem;
+            background: var(--card-bg);
+            border: 2px solid var(--blue);
+            color: var(--white);
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--blue);
+            box-shadow: 0 5px 20px rgba(0, 123, 255, 0.5);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 300px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.9), rgba(128, 0, 0, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.2);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover {
+            box-shadow: 0 10px 40px rgba(0, 123, 255, 0.6);
+            border: 2px solid var(--blue);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .portfolio-stats {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            color: var(--maroon);
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        #testimonials {
+            background: var(--dark-bg);
+        }
+
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 300px;
+        }
+
+        .testimonial {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid var(--maroon);
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .testimonial-placeholder {
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.2rem;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--blue);
+            transform: scale(1.3);
+        }
+
+        /* ===== RESUME SECTION ===== */
+        .resume-content {
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--blue), var(--maroon));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 123, 255, 0.4);
+            margin-bottom: 3rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 123, 255, 0.6);
+        }
+
+        .highlights-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid var(--blue);
+        }
+
+        .highlights-card h3 {
+            margin-bottom: 1.5rem;
+            color: var(--blue);
+        }
+
+        .highlights-card ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .highlights-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .highlights-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* ===== BLOG SECTION ===== */
+        #blog {
+            background: var(--dark-bg);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--blue);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.4);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-card h3 {
+            margin-bottom: 1rem;
+            color: var(--blue);
+        }
+
+        .blog-card p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 15px;
+            border: 2px solid var(--blue);
+            margin-bottom: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--blue);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--dark-bg);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--blue), var(--maroon));
+            border: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.5);
+        }
+
+        .contact-direct {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .copy-email {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--card-bg);
+            border: 2px solid var(--maroon);
+            color: var(--white);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .copy-email:hover {
+            background: var(--maroon);
+            box-shadow: 0 5px 20px rgba(128, 0, 0, 0.5);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            border: 2px solid var(--blue);
+        }
+
+        .social-links a:hover {
+            background: var(--blue);
+            box-shadow: 0 5px 20px rgba(0, 123, 255, 0.6);
+            transform: translateY(-5px);
+        }
+
+        /* ===== FLOATING CONTACT ===== */
+        .floating-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 999;
+        }
+
+        .floating-contact a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--blue);
+            border-radius: 50%;
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.5);
+            transition: all 0.3s;
+        }
+
+        .floating-contact a:hover {
+            transform: scale(1.2);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.8);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark-bg);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 2px solid var(--blue);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-social a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: var(--blue);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            color: var(--maroon);
+            font-style: italic;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--maroon);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(128, 0, 0, 0.5);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(128, 0, 0, 0.8);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.3s;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .typing-text {
+                font-size: 1rem;
+            }
+
+            .hero-quote {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .portfolio-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .floating-contact {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .scroll-top {
+                bottom: 20px;
+                left: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Ahmad Kamal</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#resume" class="nav-link">Resume</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <div class="hero-content">
+            <h1>Hi, I'm Ahmad Kamal</h1>
+            <div class="typing-text" id="typingText"></div>
+            <p class="location">📍 From Pakistan</p>
+            <p class="hero-quote">"Turning creativity, strategy, and automation into business impact."</p>
+        </div>
+        <div class="scroll-down" id="scrollDown"></div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p>
+                I'm Ahmad Kamal, a results-driven Virtual Assistant, Branding Specialist, and Creative Problem Solver at OSA. I combine creativity, technical expertise, and data-driven strategies to help brands grow smarter, not harder. My approach is rooted in precision, discipline, and an unwavering commitment to quality, ensuring that every project I touch doesn’t just meet expectations it sets new standards.
+            </p>
+            <p style="margin-top: 1.5rem;">
+                Over the past few years, I’ve gained hands-on experience across design, automation, SEO, content strategy, email marketing, video editing, lead generation, and digital branding. With 35+ client projects and numerous personal ventures under my belt, I’ve successfully helped businesses across multiple industries optimize their processes, elevate their online presence, and achieve measurable growth. From crafting visually compelling graphics and eBooks to building automation systems that save time and scale operations, I approach each task with precision and creativity.
+            </p>
+            <p style="margin-top: 1.5rem;">
+                Beyond execution, I focus on creating systems that scale, stories that stick, and experiences that resonate. I believe in the power of "creative discipline" where structured planning meets innovative thinking to deliver results that are not only effective but also memorable. My passion lies in blending aesthetics with functionality, transforming ideas into digital assets that truly make an impact.
+            </p>
+            <p style="margin-top: 1.5rem;">
+                If you’re looking for a professional who can seamlessly integrate design, strategy, and technology to elevate your brand, I’m here to bring that vision to life. Let’s create, innovate, and grow together. ✨
+            </p>
+        </div>
+
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+        <h2 class="section-title">Services</h2>
+        <div class="services-grid">
+            <!-- Card number 1 -->
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Virtual Assistant</h3>
+                <p>Comprehensive administrative support, project management, and operational excellence to keep your business running smoothly.</p>
+            </div>
+            <!-- Card number 2 -->
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Graphic Design</h3>
+                <p>Eye-catching visual designs that capture attention and communicate your brand message with creativity and precision.</p>
+            </div>
+            <!-- Card number 3
+            <div class="service-card">
+                <div class="service-icon"></div>
+                <h3>Content Writer</h3>
+                <p>Compelling, SEO-optimized content that engages your audience and drives conversions across all platforms.</p>
+            </div> -->
+            <!-- Card number 4 -->
+            <div class="service-card">
+                <div class="service-icon">💡</div>
+                <h3>Problem Solving</h3>
+                <p>Strategic solutions to complex challenges, turning obstacles into opportunities for growth and innovation.</p>
+            </div>
+            <!-- Card number 5 -->
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Lead Generation</h3>
+                <p>Targeted strategies to attract and convert qualified leads, fueling your sales pipeline and business expansion.</p>
+            </div>
+            <!-- Card number 6 -->
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>Automation & Workflow Setup</h3>
+                <p>Streamlining business operations using AI tools, Google Sheets, and system automations to save time and boost productivity.</p>
+            </div>
+            <!-- Card number 7 -->
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>SEO & Digital Strategy</h3>
+                <p>Optimizing online presence through competitive analysis, keyword planning, and growth-focused digital strategies.</p>
+            </div>
+            <!-- Card number 8 -->
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>Digital Marketing</h3>
+                <p>Strategic campaigns that increase brand visibility, drive traffic, and generate measurable results across digital platforms.</p>
+            </div>
+            <!-- Card number 9 -->
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Social Media Marketing</h3>
+                <p>Engaging social media strategies and content that grow your audience, boost interaction, and strengthen brand presence online.</p>
+            </div>
+            <!-- Card number 10 -->
+            <div class="service-card">
+                <div class="service-icon">🎬</div>
+                <h3>Video Editing</h3>
+                <p>Professional video production and editing that tell your brand story, captivate viewers, and enhance engagement across channels.</p>
+            </div>
+            <!-- Card number 11 -->
+            <div class="service-card">
+                <div class="service-icon">🖌️</div>
+                <h3>Brand Design</h3>
+                <p>Unique brand identities including logos, color palettes, and visual systems that make your business memorable and impactful.</p>
+            </div>
+            <!-- Card number 12 -->
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Presentation Design</h3>
+                <p>Visually compelling and professional presentations that communicate your ideas clearly and leave a lasting impression.</p>
+            </div>
+            <!-- Card number 13 -->
+            <div class="service-card">
+                <div class="service-icon">📝</div>
+                <h3>Content Strategy</h3>
+                <p>Data-driven content planning and execution that ensures consistent messaging, engages your audience, and drives growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid">
+            <!-- Section number 1 -->
+            <div>
+                <!-- Skill number 1 -->
+                <div class="skill-item" data-progress="90">
+                    <div class="skill-name">
+                        <span>Video Editing</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <!-- Skill number 2 -->
+                <div class="skill-item" data-progress="95">
+                    <div class="skill-name">
+                        <span>Automation Systems
+                        </span><span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <!-- Skill number 3 -->
+                <div class="skill-item" data-progress="93">
+                    <div class="skill-name">
+                        <span>Canva Design & Branding</span>
+                        <span>93%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <!-- Skill number 4 -->
+                <div class="skill-item" data-progress="90">
+                    <div class="skill-name">
+                        <span>Content Strategy & Optimization</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <!-- Skill number 5 -->
+                <div class="skill-item" data-progress="88">
+                    <div class="skill-name">
+                        <span>Lead Generation</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <!-- Skill number 6 -->
+                <div class="skill-item" data-progress="85">
+                    <div class="skill-name">
+                        <span>SEO Optimization</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Section number 2 -->
+            <div>
+                <!-- Skill number 1 -->
+                <div class="skill-item" data-progress="95">
+                    <div class="skill-name">
+                        <span>Graphic Designing</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <!-- Skill number 2 -->
+                <div class="skill-item" data-progress="80">
+                    <div class="skill-name">
+                        <span>Web Development</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <!-- Skill number 3 -->
+                <div class="skill-item" data-progress="85">
+                    <div class="skill-name">
+                        <span>WordPress Developer</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <!-- Skill number 4 -->
+                <div class="skill-item" data-progress="93">
+                    <div class="skill-name">
+                        <span>Virtual Assistant</span>
+                        <span>93%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <!-- Skill number 5 -->
+                <div class="skill-item" data-progress="78">
+                    <div class="skill-name">
+                        <span>CCA (Computer Application)</span>
+                        <span>78%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <!-- Skill number 6 -->
+                <div class="skill-item" data-progress="88">
+                    <div class="skill-name">
+                        <span>Email Marketing</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Section number 3 -->
+            <div>
+                <!-- Skill number 1 -->
+                <div class="skill-item" data-progress="82">
+                    <div class="skill-name">
+                        <span>Basic Photoshop</span>
+                        <span>82%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <!-- Skill number 2 -->
+                <div class="skill-item" data-progress="90">
+                    <div class="skill-name">
+                        <span>Content Creator</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <!-- Skill number 3 -->
+                <div class="skill-item" data-progress="88">
+                    <div class="skill-name">
+                        <span>eBook Designer</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                 <!-- Skill number 4 -->
+                <div class="skill-item" data-progress="92">
+                    <div class="skill-name">
+                        <span>Post Design</span>
+                        <span>92%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <!-- Skill number 5 -->
+                <div class="skill-item" data-progress="87">
+                    <div class="skill-name">
+                        <span>Resume Design</span>
+                        <span>87%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio">
+        <h2 class="section-title">Portfolio</h2>
+        <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="design">Design</button>
+            <button class="filter-btn" data-filter="va">VA</button>
+            <button class="filter-btn" data-filter="seo">SEO</button>
+            <button class="filter-btn" data-filter="automation">Automation</button>
+        </div>
+        <div class="portfolio-grid">
+            <!-- Portfolio number 1 -->
+            <div class="portfolio-item" data-category="design">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Portfolio%201%20-%20Brand%20Identity%20Design.jpg" alt="Project 1">
+                <div class="portfolio-overlay">
+                    <h3>Brand Identity Design</h3>
+                </div>
+            </div>
+            <!-- Portfolio number 2 -->
+            <div class="portfolio-item" data-category="va">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Portfolio%202%20-%20Virtual%20Assistant%20Project.jpg" alt="Project 2">
+                <div class="portfolio-overlay">
+                    <h3>Virtual Assistant Project</h3>
+                </div>
+            </div>
+            <!-- Portfolio number 3 -->
+            <div class="portfolio-item" data-category="seo">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Portfolio%203%20-%20SEO%20Optimization%20Campaign.jpg" alt="Project 3">
+                <div class="portfolio-overlay">
+                    <h3>SEO Optimization Campaign</h3>
+                </div>
+            </div>
+            <!-- Portfolio number 4 -->
+            <div class="portfolio-item" data-category="design">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Portfolio%204%20-%20Social%20Media%20Graphics.jpg" alt="Project 4">
+                <div class="portfolio-overlay">
+                    <h3>Social Media Graphics</h3>
+                </div>
+            </div>
+            <!-- Portfolio number 5 -->
+            <div class="portfolio-item" data-category="va">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Portfolio%205%20-%20Email%20Marketing%20Campaign.jpg" alt="Project 5">
+                <div class="portfolio-overlay">
+                    <h3>Email Marketing Campaign</h3>
+                </div>
+            </div>
+            <!-- Portfolio number 6 -->
+            <div class="portfolio-item" data-category="design">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Portfolio%206%20-%20Corporate%20Logo%20Design.jpg" alt="Project 6">
+                <div class="portfolio-overlay">
+                    <h3>Corporate Logo Design</h3>
+                </div>
+            </div>
+            <!-- Portfolio number 7 -->
+            <div class="portfolio-item" data-category="seo">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Portfolio%207%20-%20Content%20Strategy%20%26%20SEO.jpg" alt="Project 7">
+                <div class="portfolio-overlay">
+                    <h3>Content Strategy & SEO</h3>
+                </div>
+            </div>
+            <!-- Portfolio number 8 -->
+            <div class="portfolio-item" data-category="design">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Portfolio%208%20-%20eBook%20Cover%20Design.jpg" alt="Project 8">
+                <div class="portfolio-overlay">
+                    <h3>eBook Cover Design</h3>
+                </div>
+            </div>
+            <!-- Portfolio number 9 -->
+            <div class="portfolio-item" data-category="va">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Portfolio%209%20-%20Lead%20Generation%20Project.jpg" alt="Project 9">
+                <div class="portfolio-overlay">
+                    <h3>Lead Generation Project</h3>
+                </div>
+            </div>
+            <!-- Portfolio number 10 -->
+            <div class="portfolio-item" data-category="automation">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Portfolio%2010%20-%20Task%20%26%20Automation%20Tracker.jpg"
+                alt="Automation Sheet Project">
+                <div class="portfolio-overlay">
+                    <h3>Task & Automation Tracker</h3>
+                </div>
+            </div>
+        </div>
+        <p class="portfolio-stats">✨ Successfully completed 35-45+ projects with outstanding client feedback</p>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="testimonials-slider">
+            <!-- testimonial active -->
+            <div class="testimonial active">
+                <p>“Ahmad is an incredibly reliable and creative professional. His designs, automation systems, and strategies have improved our brand workflow massively.”</p>
+                <p>- Sajeel Ahmad (Founder & Mentor)</p>
+            </div>
+            <!-- testimonial 1 -->
+            <div class="testimonial">
+                <p>“Excellent communication, design sense, and attention to detail. Truly a one-man marketing team.”</p>
+                <p>- Spedition Askari</p>
+            </div>
+            <!-- testimonial 2 -->
+            <div class="testimonial">
+                <p>“Working with Ahmad has been a game-changer for OSA. His expertise in branding, content strategy, and automation has elevated our processes and results significantly.”</p>
+                <p>- Sajeel Ahmad (Founder & Mentor)</p>
+            </div>
+            <!-- testimonial 3 -->
+            <div class="testimonial">
+                <p>“Ahmad's creativity and professionalism are outstanding. His digital marketing insights and design skills have helped our campaigns reach new heights.”</p>
+                <p>- Wardah Muzammil</p>
+            </div>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+            <span class="dot" data-slide="3"></span>
+        </div>
+    </section>
+
+    <!-- RESUME SECTION -->
+    <section id="resume">
+        <h2 class="section-title">Resume</h2>
+        <div class="resume-content">
+            <a href="https://drive.google.com/file/d/1ckI5ie2MOqUsTbNKug8L4YXIKSfD1AoT/view?usp=sharing" class="download-btn" target="_blank" rel="noopener noreferrer">📄 Download My Resume (PDF)</a>
+            <div class="highlights-card">
+                <h3>Professional Highlights</h3>
+                <ul>
+                    <li>🎯 45+ Professional Projects Completed</li>
+                    <li>🏆 Expertise in Branding, SEO & Digital Automation</li>
+                    <li>💼 OSA Company Lead Virtual Assistant & Branding Specialist</li>
+                    <li>📊 Skilled in Canva, SEO, Email Marketing & Client Communication</li>
+                    <li>🧩 Designed 15+ eBooks, Newsletters, & Corporate Presentations</li>
+                    <li>⚙️ Certified in Computer Applications (CCA)</li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG SECTION -->
+    <section id="blog">
+        <h2 class="section-title">Latest Blog Posts</h2>
+        <div class="blog-grid">
+            <!-- Blog number 1 -->
+            <div class="blog-card">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Blog%201%20-%20The%20Future%20of%20Virtual%20Assistance.jpg" alt="Blog 1">
+                <div class="blog-content">
+                    <h3>The Future of Virtual Assistance</h3>
+                    <p>Exploring how AI and automation are transforming the virtual assistant industry and what it means for professionals in 2025...</p>
+                </div>
+            </div>
+            <!-- Blog number 2 -->
+            <div class="blog-card">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Blog%202%20-%20Building%20a%20Strong%20Brand%20Identity.jpg" alt="Blog 2">
+                <div class="blog-content">
+                    <h3>Building a Strong Brand Identity</h3>
+                    <p>Essential tips and strategies for creating a memorable brand that resonates with your target audience and stands out...</p>
+                </div>
+            </div>
+            <!-- Blog number 3 -->
+            <div class="blog-card">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Blog%203%20-%20Mastering%20SEO%20in%202025.jpg" alt="Blog 3">
+                <div class="blog-content">
+                    <h3>Mastering SEO in 2025</h3>
+                    <p>Latest SEO techniques and best practices to boost your website's visibility and drive organic traffic effectively...</p>
+                </div>
+            </div>
+            <!-- Blog number 4 -->
+            <div class="blog-card">
+                <img src="https://raw.githubusercontent.com/ahmadkamalworkpro-star/portfolio-assets/refs/heads/main/Blog%204%20-%20Creative%20Discipline%20in%20the%20Digital%20Age.jpg" alt="Blog 3">
+                <div class="blog-content">
+                    <h3>Creative Discipline in the Digital Age</h3>
+                    <p>Why creativity without discipline fails — and how I structure my design and marketing work to balance both...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <input type="hidden" name="access_key" value="c8604617-bfa8-40d9-94d2-5181966b2733">
+                <button type="submit" class="submit-btn">Let's Collaborate 🚀</button>
+            </form>
+
+            <div class="contact-direct">
+                <h3>Or reach me directly - let's create something powerful!</h3>
+                <button class="copy-email" id="copyEmail">
+                    📧 Copy Email Address
+                </button>
+            </div>
+
+            <!-- social-links -->
+            <div class="social-links">
+                <!-- Whatsapp -->
+                <a href="https://wa.me/923108565293" target="_blank" title="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <!-- linkedin -->
+                <a href="https://www.linkedin.com/in/ahmad-kamal-work?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <!-- Email -->
+                <a href="mailto:ahmadkamal.work.pro@gmail.com" title="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <!-- instagram -->
+                <a href="https://www.instagram.com/ahmadkamal_pro?igsh=Y3BpZjZhNnFzZGN5" target="_blank" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EmailJS Scripts
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("8uLewLmunw5ryL0Aa"); // Apki Public Key
+        })();
+    </script>
+
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event){
+        event.preventDefault(); // Page reload roke
+
+        // Form data fetch
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // Email send via EmailJS
+        emailjs.send("service_t5m8pfg", "template_pejac5o", {
+            name: name,
+            email: email,
+            message: message
+        })
+        .then(function(response){
+            alert("Message sent successfully! ");
+            document.getElementById('contactForm').reset(); // Form clear
+        }, function(error){
+            alert("Oops! Something went wrong... ");
+            console.log(error);
+        });
+    });
+    </script> -->
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-social">
+                <!-- Whatsapp -->
+                <a href="https://wa.me/923108565293" target="_blank" title="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <!-- linkedin -->
+                <a href="https://www.linkedin.com/in/ahmad-kamal-work?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <!-- Email -->
+                <a href="mailto:ahmadkamal.work.pro@gmail.com" title="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <!-- instagram -->
+                <a href="https://www.instagram.com/ahmadkamal_pro?igsh=Y3BpZjZhNnFzZGN5" target="_blank" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+            <p class="copyright">© 2025 Ahmad Kamal. All Rights Reserved.</p>
+            <p class="footer-tagline">Built with passion and precision.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING CONTACT BUTTONS -->
+    <div class="floating-contact">
+        <!-- Whatsapp -->
+        <a href="https://wa.me/923108565293" target="_blank" title="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <!-- linkedin -->
+        <a href="https://www.linkedin.com/in/ahmad-kamal-work?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <!-- Email -->
+        <a href="mailto:ahmadkamal.work.pro@gmail.com" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+        <!-- instagram -->
+        <a href="https://www.instagram.com/ahmadkamal_pro?igsh=Y3BpZjZhNnFzZGN5" target="_blank" title="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+    </div>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <div class="scroll-top" id="scrollTop">↑</div>
+
+    <script>
+        // ===== TYPING ANIMATION =====
+        const typingText = document.getElementById('typingText');
+        const texts = [
+            'Virtual Assistant',
+            'Branding & Marketing Specialist',
+            'Automation Expert',
+            'Creative Designer',
+            'Client Growth Strategist'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            const typingSpeed = isDeleting ? 50 : 100;
+            setTimeout(type, typingSpeed);
+        }
+
+        type();
+
+        // ===== HERO CANVAS ANIMATION =====
+        const canvas = document.getElementById('heroCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 100;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.color = Math.random() > 0.5 ? '#007BFF' : '#800000';
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        animateParticles();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // ===== MOUSE TRAIL EFFECT =====
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            const trail = document.createElement('div');
+            trail.style.position = 'fixed';
+            trail.style.width = '5px';
+            trail.style.height = '5px';
+            trail.style.borderRadius = '50%';
+            trail.style.background = Math.random() > 0.5 ? '#007BFF' : '#800000';
+            trail.style.left = mouseX + 'px';
+            trail.style.top = mouseY + 'px';
+            trail.style.pointerEvents = 'none';
+            trail.style.zIndex = '9999';
+            trail.style.boxShadow = '0 0 10px currentColor';
+            trail.style.opacity = '0.8';
+            document.body.appendChild(trail);
+
+            setTimeout(() => {
+                trail.style.transition = 'all 0.5s';
+                trail.style.opacity = '0';
+                trail.style.transform = 'scale(2)';
+            }, 10);
+
+            setTimeout(() => trail.remove(), 500);
+        });
+
+        // ===== SCROLL DOWN BUTTON =====
+        document.getElementById('scrollDown').addEventListener('click', () => {
+            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // ===== NAVIGATION =====
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinksArray = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinksArray.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ===== INTERSECTION OBSERVER FOR SECTIONS =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // ===== SKILLS ANIMATION =====
+        const skillItems = document.querySelectorAll('.skill-item');
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    const progress = entry.target.getAttribute('data-progress');
+                    const progressBar = entry.target.querySelector('.skill-progress');
+                    progressBar.style.setProperty('--progress', progress + '%');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillItems.forEach(item => skillObserver.observe(item));
+
+        // ===== PORTFOLIO FILTER =====
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // ===== TESTIMONIALS SLIDER =====
+        let currentSlide = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(n) {
+            testimonials.forEach(t => t.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            currentSlide = n;
+            if (currentSlide >= testimonials.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = testimonials.length - 1;
+
+            testimonials[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+
+        // Auto slide
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // ===== CONTACT FORM =====
+        // document.getElementById('contactForm').addEventListener('submit', (e) => {
+        //     e.preventDefault();
+        //     alert('Thank you for your message! I will get back to you soon.');
+        //     e.target.reset();
+        // });
+
+        // ===== COPY EMAIL =====
+        document.getElementById('copyEmail').addEventListener('click', () => {
+            const email = 'ahmadkamal.work.pro@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const btn = document.getElementById('copyEmail');
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Email Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        });
+
+        // ===== SCROLL TO TOP =====
+        const scrollTop = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== SMOOTH SCROLL FOR ALL ANCHOR LINKS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
